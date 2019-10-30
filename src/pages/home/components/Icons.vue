@@ -1,10 +1,8 @@
 <template>
   <div class="icons">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="(page, index) of pages" :key="index">
         <div
           class="icon"
-          v-for="item of page"
+          v-for="item of iconList"
           :key="item.id"
         >
           <div class='icon-img'>
@@ -12,18 +10,16 @@
           </div>
           <p class="icon-desc">{{item.desc}}</p>
         </div>
-      </swiper-slide>
-    </swiper>
   </div>
 </template>
 
 <script>
 export default {
-    name : 'HomeIcons',
-    props : {
-        list:Array
-    },
-    data () {
+  name: 'HomeIcons',
+  props: {
+    list: Array
+  },
+   data () {
         return {
             iconList:[{
                 id: '0001',
@@ -57,38 +53,45 @@ export default {
                 id: '0008',
                 imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/e48e868a92b508a04da2a3bfdd35d4cd.png',
                 desc:'青啤博物馆'
-            },{
-                id: '0009',
-                imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                desc:'青岛极地'
+            // },{
+            //     id: '0009',
+            //     imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
+            //     desc:'青岛极地'
+            // },
             },]
 
             }
     },
-    computed :{
-        pages () {
-            const pages =[]
-            this.iconList.forEach((item,index) => {
-                const page =Math.floor(index/8)
-                if(!pages[page]){
-                    pages[page]=[]
-                }
-                pages[page].push(item)
-            })
-            return pages
-        }
-    }
+  /*
+  * 计算属性：根据数据项的不同，去计算
+  * 使用其功能，计算第一页显示什么，第二页显示什么
+  * */
+  // computed: {
+  //   pages () {
+  //     const pages = []
+  //     this.iconList.forEach((item, index) => {
+  //       /*
+  //       * floor:取整
+  //       * */
+  //       const page = Math.floor(index / 8)
+  //       if (!pages[page]) {
+  //         pages[page] = []
+  //       }
+  //       pages[page].push(item)
+  //     })
+  //     return pages
+  //   }
+  // }
 }
 </script>
-
 
 <style lang="stylus" scoped>
   @import '~style/varibles.styl'
   @import '~style/mixins.styl'
-  .icons >>> .swiper-container
+   
+  .icons
     height: 0
     padding-bottom: 50%
-  .icons
     margin-top: .1rem
     .icon
       position: relative
