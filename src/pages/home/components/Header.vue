@@ -1,17 +1,19 @@
-<template>
-	<div class="header">
-    	<!-- 为什么要用一个div包着三个div，Vue只允许有一个根元素 -->
-		<div class="header-left">
+  <template>
+  <div class="header">
+      <!-- 为什么要用一个div包着三个div，Vue只允许有一个根元素 -->
+    <div class="header-left">
       <div class="iconfont back-icon">&#xe624;</div>
     </div>
-		<div class="header-input">
+    <div class="header-input">
       <span class="iconfont">&#xe632;</span>
       输入城市/景点/游玩主题</div>
-		<div class="header-right">{{this.city}}
-      <span class="iconfont arrow-icon">&#xe64a;</span>
+      <router-link to='/city'>
+          <div class="header-right">{{this.city}}
+          <span class="iconfont arrow-icon">&#xe64a;</span>
     </div>
-	</div>
-</template>
+          </router-link>
+  </div>
+  </template>
 
 <script>
 	export default {
@@ -49,6 +51,7 @@
     .header-right
       width: 1.24rem
       float : right 
+      color :#fff
       text-align : center
       .arrow-icon
         margin-left: -.04rem
